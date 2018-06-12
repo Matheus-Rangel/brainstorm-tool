@@ -6,22 +6,27 @@ import java.util.List;
  * Idea
  */
 public class Idea {
-  Session session;
-  String description;
-  User author;
-  List<User> voters;
+	//Session session; atributo não necessario
+	String description;
+	User author;
+	List<User> voters;
+	
 
-  public Idea(User author, String description) {
-  }
+	public Idea(String description, User author) {
+		super();
+		this.description = description;
+		this.author = author;
+	}
 
-  public void registerVote(User u) {
-  }
+	public void registerVote(User u) {
+		voters.
+	}
 
-  public void reclaimVote(User u) {
-  }
+	public void reclaimVote(User u) {
+	}
 
-  public int countVotes() {
-    return 0;
-  }
-  
+	public int countVotes() {
+		return 0;
+	}
+
 }

@@ -8,5 +8,16 @@ public class User {
   int votes;
 
   public User(String username) {
+	  this.username = username;
+	  this.votes = 0;
+  }
+  void addVote() {
+	  votes ++;
+  }
+  void removeVote() {
+	  votes --;
+  }
+  int getVotes() {
+	  return this.votes;
   }
 }
