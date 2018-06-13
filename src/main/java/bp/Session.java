@@ -7,46 +7,56 @@ import java.util.List;
  */
 public class Session {
 
-  User owner;
-  String description;
-  SessionPhase phase;
-  int votingLimit = 3;
-  List<Idea> ideas;
-  List<User> participants;
+	User owner;
+	String description;
+	SessionPhase phase;
+	int votingLimit = 3;
+	List<Idea> ideas;
+	List<User> participants;
 
-  public Session(User owner) {
-  }
+	public Session(User owner, String description) {
+		this.owner = owner;
+		this.description = description;
+		this.phase = SessionPhase.WELCOME;
+	}
+	
+	public SessionPhase nextPhase() {
+		this.phase = this.phase.next();
+		return this.phase;
+	}
 
-  public SessionPhase nextPhase() {
-    return null;
-  }
+	public SessionPhase getPhase() {
+		return this.phase;
+	}
 
-  public SessionPhase getPhase() {
-    return null;
-  }
-  
-  public boolean addIdea(Idea idea) {
-    return false;
-  }
+	public void addIdea(Idea idea) {
+		int index = -1;
+		if(!this.ideas.contains(idea)) {
+			this.ideas.add(idea);
+		}else {
+			index = this.ideas.indexOf(idea);
+			System.out.println("addIdea: " + this.ideas.get(index).getAuthor() +" ja teve essa ideia");
+		}
+	}
+	
+	public List<Idea> getIdeas() {
+		return this.ideas;
+	}
 
-  public List<Idea> getIdeas() {
-    return null;
-  }
+	public List<Idea> rankIdeas() {
+		return ideas.sort(Comparator<Idea> c);
+	}
 
-  public List<Idea> rankIdeas() {
-    return null;
-  }
+	public boolean addParticipant(User participant) {
+		return false;
+	}
 
-  public boolean addParticipant(User participant) {
-    return false;
-  }
+	public boolean removeParticipant(User participant) {
+		return false;
+	}
 
-  public boolean removeParticipant(User participant) {
-    return false;
-  }
-
-  public List<User> getParticipants() {
-    return null;
-  }
+	public List<User> getParticipants() {
+		return null;
+	}
 
 }
