@@ -7,6 +7,9 @@ public enum SessionPhase {
 	RANK; // final report
 	private static SessionPhase [] vals = values();
 	public SessionPhase next() {
-		return vals[(this.ordinal() + 1) % vals.length];
+		if(this.ordinal() < vals.length - 1)
+			return vals[this.ordinal() + 1]; 
+		else
+			return vals[this.ordinal()];
 	}
 };
